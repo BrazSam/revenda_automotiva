@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ABC Automoveis")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dda037cc60b00051e22319ecae4cb12fddbf8930")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ba51ae5b3fc9a06a69431f6699ecc17e6ee55baf")]
 [assembly: System.Reflection.AssemblyProductAttribute("ABC Automoveis")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ABC Automoveis")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

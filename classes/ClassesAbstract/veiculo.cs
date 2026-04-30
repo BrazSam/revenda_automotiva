@@ -6,18 +6,21 @@ public abstract class Veiculo
     public string Marca { get; set; }
     public string Modelo { get; set; }
     public int Ano { get; set; }
+    public decimal Valor { get; set; }
 
-    public Veiculo(string marca, string modelo, int ano)
+    protected Veiculo(string marca, string modelo, int ano, decimal valor)
     {
         Id = Convert
                 .ToHexString(RandomNumberGenerator.GetBytes(20))
                 .ToLower()
                 .Substring(0, 7);
-            
+
         Marca = marca;
         Modelo = modelo;
         Ano = ano;
+        Valor = valor;
     }
 
-    // public abstract void ExibirInformacoes();
+
+    public abstract string ExibirInformacoes();
 }

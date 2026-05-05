@@ -1,47 +1,67 @@
-﻿internal class Program
+internal class Program
 {
     //Samuel Braz dos Santos e Thiago Kovalski
     private static void Main(string[] args)
     {
         List<Veiculo> listaVeiculos = new List<Veiculo>();       
         TelaPrincipal tela = new TelaPrincipal();
+        TelaCadastrar cadastrar = new();
         
         while (true)
         {
-        string opcaoDigitada = tela.ExibirMenuPrincipal();
-        
-        if(opcaoDigitada == "0")
-            break;
+        //obter oq o usuario quer fazer, cadastrar ou listar
+        string opcaoDigitadaMenuPrincipal = tela.ExibirMenuPrincipal();
 
-        //1 - Cadastrar dados veiculo
-        if(opcaoDigitada == "1")
+
+        if(opcaoDigitadaMenuPrincipal == "1")
             {
-                TelaCadastrar cadastrar = new();
 
-                listaVeiculos.Add(cadastrar.CadastrarCaminhonete());
+                string opcaoDigitada = cadastrar.ExibirCadastro();
 
+                    switch (opcaoDigitada)
+                {
+                    
+                    case "1":
+                        Veiculo bicicleta = cadastrar.CadastrarBicicleta();
+                        listaVeiculos.Add(bicicleta);
+                        break;
+                    case "2":
+                        Veiculo automovel = cadastrar.CadastrarAutomovel();
+                        listaVeiculos.Add(automovel);
+                        break;
+                    case "3":
+                        Veiculo motocicleta = cadastrar.CadastrarMotocicleta();
+                        listaVeiculos.Add(motocicleta);
+                        break;
+                    case "4":
+                        Veiculo caminhonete = cadastrar.CadastrarCaminhonete();
+                        listaVeiculos.Add(caminhonete);
+                        break;
+                    case "5":
+                        Veiculo caminhao = cadastrar.CadastrarCaminhao();
+                        listaVeiculos.Add(caminhao);
+                        break;
+                    case "6":
+                        Veiculo utilitario = cadastrar.CadastrarUtilitario();
+                        listaVeiculos.Add(utilitario);
+                        break;
+                    default:                    
+                        Console.WriteLine("Digite uma das opções acima!");
+                        break;
+                }
+            }
+            
+        if(opcaoDigitadaMenuPrincipal == "2")
+            {
+                TelaListar listar = new();
+                listar.ListarNormal(listaVeiculos);
             }
         
-        foreach(Veiculo v in listaVeiculos)
+        if(opcaoDigitadaMenuPrincipal == "3")
             {
-                v.ExibirInformacoes();
+                TelaListar listar = new();
+                listar.ListarPorTipo(listaVeiculos);
             }
-        Console.ReadLine();
-        
-        
-        
-        
-        // else if(opcaoDigitada == "2")
-        //     {
-        //         TelaListar listar = new TelaListar();
-        //         listar.ListarVeiculos(listaVeiculos);
-        //     }
-        // else if(opcaoDigitada == "3")
-        //     {
-                
-        //     }
-        //2 - listar os dados dos veiculos
-        //3 - listar por tipo de veiculo
-        }
     }
+}
 }

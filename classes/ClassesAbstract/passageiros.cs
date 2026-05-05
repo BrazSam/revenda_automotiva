@@ -7,5 +7,7 @@ public abstract class DePassageiros : Veiculo
         CapacidadePassageiros = capacidadePassageiros;
     }
 
-    
+    public DePassageiros(string marca, string modelo, int ano, decimal valor) : base(marca, modelo, ano, valor)
+    {
+    }
 }

@@ -10,6 +10,8 @@ public class TelaPrincipal
             System.Console.WriteLine("1 - Cadastrar Veiculo"); 
             System.Console.WriteLine("2 - Listar todos os Veiculos"); 
             System.Console.WriteLine("3 - Listar por Tipo de Veiculo");
+            System.Console.WriteLine("4 - Atualizar Veículo cadastrado");
+            System.Console.WriteLine("5 - Remover Veículo");
             System.Console.WriteLine("0 - Sair");
             System.Console.Write("> ");
 

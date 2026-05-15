@@ -1,6 +1,6 @@
 public class Bicicleta : DePassageiros
 {
-    public Bicicleta(string marca, string modelo, int ano, int capacidadePassageiros,  decimal valor) : base(marca, modelo, ano, capacidadePassageiros,valor)
+    public Bicicleta(string placa, string marca, string modelo, int ano, int capacidadePassageiros,  decimal valor) : base(placa, marca, modelo, ano, capacidadePassageiros,valor)
     {
 
     }

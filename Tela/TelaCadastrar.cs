@@ -5,7 +5,7 @@ public class TelaCadastrar
     {
         while(true)
         {
-            Console.WriteLine("Bem-vindo ao ABC BOLAS carros && Motos!");
+            Console.WriteLine("ABC BOLAS carros && Motos!");
             System.Console.WriteLine("Selecione uma opção para cadastrar:");
             System.Console.WriteLine("1 - Bicicleta"); 
             System.Console.WriteLine("2 - Automóvel"); 

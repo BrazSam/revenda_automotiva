@@ -1,7 +1,7 @@
 public class Utilitario : DePassageiros
 {   
     public string Outros{get; set;}
-    public Utilitario(string marca, string modelo, int ano, string outros, decimal valor) : base(marca, modelo, ano, valor)
+    public Utilitario(string placa, string marca, string modelo, int ano, string outros, decimal valor) : base(placa, marca, modelo, ano, valor)
     {
         Outros = outros;
     }

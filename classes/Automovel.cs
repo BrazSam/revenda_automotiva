@@ -1,6 +1,6 @@
 public class Automovel : DePassageiros
 {
-    public Automovel(string placa, string marca, string modelo, int ano, int capacidadePassageiros, decimal valor) : base(placa, marca, modelo, ano, capacidadePassageiros, valor)
+    public Automovel(string placa, string marca, string modelo, int ano, decimal valor, int capacidadePassageiros) : base(placa, marca, modelo, ano, valor, capacidadePassageiros)
     {
         
     }

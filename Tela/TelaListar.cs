@@ -1,6 +1,6 @@
 public class TelaListar
 {
-
+    
 
     public void ListarNormal(List<Veiculo> listaVeiculos)
     {

@@ -62,6 +62,11 @@ internal class Program
                 TelaListar listar = new();
                 listar.ListarPorTipo(listaVeiculos);
             }
+
+        if(opcaoDigitadaMenuPrincipal == "4")
+            {
+                TelaRemover remover = new();
+            }
     }
 }
 }

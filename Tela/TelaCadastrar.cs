@@ -20,8 +20,11 @@ public class TelaCadastrar
             string? opcao = Console.ReadLine();
         
         if(!String.IsNullOrWhiteSpace(opcao) && (opcao == "1" || opcao == "2" || opcao == "3" || opcao == "4" || opcao == "5" || opcao == "6" || opcao == "0"))
+        {
             Console.Clear();
             return opcao;
+        }
+        else
         
         System.Console.WriteLine("Opção inválida, por favor selecione uma opção válida.");
         }
@@ -35,6 +38,9 @@ public class TelaCadastrar
     //encapsulamento 
     private void CadastroDadosBase(Veiculo veiculo) //caminhete marca modelo ano valor
     {
+        System.Console.Write("Digite a placa do veículo: ");
+        veiculo.Placa = Console.ReadLine();
+        
         System.Console.Write("Digite A MARCA do Veiculo: ");
         veiculo.Marca = Console.ReadLine();
 
@@ -51,7 +57,7 @@ public class TelaCadastrar
 
     public Caminhonete CadastrarCaminhonete()
     {
-        Caminhonete c = new Caminhonete("", "", 0, "", 0);
+        Caminhonete c = new Caminhonete("", "", "", 0, 0, "");
         CadastroDadosBase(c); //aqui pega os dados bases
         
         System.Console.Write("Digite o tipo de carga: ");
@@ -62,7 +68,7 @@ public class TelaCadastrar
 
     public Automovel CadastrarAutomovel()
     {
-        Automovel a = new Automovel("", "", 0, 0, 0);
+        Automovel a = new Automovel("", "", "", 0, 0, 0);
         CadastroDadosBase(a); //aqui pega os dados bases
         
         System.Console.Write("Digite a CAPACIDADE de passageiros: ");
@@ -73,7 +79,7 @@ public class TelaCadastrar
 
     public Motocicleta CadastrarMotocicleta()
     {
-        Motocicleta m = new Motocicleta("", "", 0, 0, .0m);
+        Motocicleta m = new Motocicleta("", "", "", 0, 0, 0);
         CadastroDadosBase(m); //aqui pega os dados bases
         
         System.Console.Write("Digite a CAPACIDADE de passageiros: ");
@@ -83,7 +89,7 @@ public class TelaCadastrar
     }
     public Bicicleta CadastrarBicicleta()
     {
-        Bicicleta b = new Bicicleta("", "", 0, 0, 0);
+        Bicicleta b = new Bicicleta("", "", "", 0, 0, 0);
         CadastroDadosBase(b); //aqui pega os dados bases
         
         System.Console.Write("Digite a CAPACIDADE de passageiros: ");
@@ -94,7 +100,7 @@ public class TelaCadastrar
 
     public Utilitario CadastrarUtilitario()
     {
-        Utilitario u = new Utilitario("", "", 0, "", 0);
+        Utilitario u = new Utilitario("", "", "", 0, 0, "");
         CadastroDadosBase(u); //aqui pega os dados bases
         
         System.Console.Write("Digite os outros detalhes: ");
@@ -104,7 +110,8 @@ public class TelaCadastrar
     }
     public Caminhao CadastrarCaminhao()
     {
-        Caminhao c = new Caminhao("", "", 0, "", 0);
+        Caminhao c = new Caminhao("", "", "", 0, 0, "");
+        CadastroDadosBase(c); //aqui pega os dados bases
 
         System.Console.Write("Digite o tipo de carga: ");
         c.TipoCarga = Console.ReadLine();

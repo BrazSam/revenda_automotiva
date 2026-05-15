@@ -2,7 +2,7 @@ public abstract class DePassageiros : Veiculo
 {
 
     public int CapacidadePassageiros { get; set; }
-    protected DePassageiros(string placa, string marca, string modelo, int ano, int capacidadePassageiros, decimal valor) : base(placa, marca, modelo, ano, valor)
+    protected DePassageiros(string placa, string marca, string modelo, int ano, decimal valor, int capacidadePassageiros) : base(placa, marca, modelo, ano, valor)
     {
         CapacidadePassageiros = capacidadePassageiros;
     }

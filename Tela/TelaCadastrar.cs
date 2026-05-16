@@ -3,12 +3,12 @@ public class TelaCadastrar
 
     public string ExibirCadastro()
     {
-        while(true)
+        while (true)
         {
             Console.WriteLine("ABC BOLAS carros && Motos!");
             System.Console.WriteLine("Selecione uma opção para cadastrar:");
-            System.Console.WriteLine("1 - Bicicleta"); 
-            System.Console.WriteLine("2 - Automóvel"); 
+            System.Console.WriteLine("1 - Bicicleta");
+            System.Console.WriteLine("2 - Automóvel");
             System.Console.WriteLine("3 - Motocicleta");
             System.Console.WriteLine("4 - Caminhonete");
             System.Console.WriteLine("5 - Caminhão");
@@ -18,105 +18,112 @@ public class TelaCadastrar
             System.Console.Write("> ");
 
             string? opcao = Console.ReadLine();
-        
-        if(!String.IsNullOrWhiteSpace(opcao) && (opcao == "1" || opcao == "2" || opcao == "3" || opcao == "4" || opcao == "5" || opcao == "6" || opcao == "0"))
-        {
-            Console.Clear();
-            return opcao;
-        }
-        else
-        
-        System.Console.WriteLine("Opção inválida, por favor selecione uma opção válida.");
+
+            if (!String.IsNullOrWhiteSpace(opcao) && (opcao == "1" || opcao == "2" || opcao == "3" || opcao == "4" || opcao == "5" || opcao == "6" || opcao == "0"))
+            {
+                Console.Clear();
+                return opcao;
+            }
+
+            System.Console.WriteLine("Opção inválida, por favor selecione uma opção válida.");
         }
     }
 
-    // public string Marca { get; set; }
-    // public string Modelo { get; set; }
-    // public int Ano { get; set; }
-    // public decimal Valor { get; set; }
-
-    //encapsulamento 
-    private void CadastroDadosBase(Veiculo veiculo) //caminhete marca modelo ano valor
+    private (string Placa, string Marca, string Modelo, int Ano, decimal Valor) LerDadosBase()
     {
-        System.Console.Write("Digite a placa do veículo: ");
-        veiculo.Placa = Console.ReadLine();
-        
-        System.Console.Write("Digite A MARCA do Veiculo: ");
-        veiculo.Marca = Console.ReadLine();
+        string placa = LerTexto("Digite a placa do veículo: ");
+        string marca = LerTexto("Digite A MARCA do Veiculo: ");
+        string modelo = LerTexto("Digite O MODELO do Veiculo: ");
+        int ano = LerInteiro("Digite O ANO do Veiculo: ");
+        decimal valor = LerDecimal("Digite O VALOR do Veiculo: R$");
 
-        System.Console.Write("Digite O MODELO do Veiculo: ");
-        veiculo.Modelo = Console.ReadLine();
+        return (placa, marca, modelo, ano, valor);
+    }
 
-        System.Console.Write("Digite O ANO do Veiculo: ");
-        veiculo.Ano = Convert.ToInt32(Console.ReadLine());
+    private string LerTexto(string mensagem)
+    {
+        Console.Write(mensagem);
+        return Console.ReadLine() ?? string.Empty;
+    }
 
-        System.Console.Write("Digite O VALOR do Veiculo: R$");
-        veiculo.Valor = Convert.ToDecimal(Console.ReadLine());
+    private int LerInteiro(string mensagem)
+    {
+        while (true)
+        {
+            Console.Write(mensagem);
+            string? texto = Console.ReadLine()?.Trim();
 
+            if (int.TryParse(texto, out int valor))
+                return valor;
+
+            Console.WriteLine("Digite um número inteiro válido.");
+        }
+    }
+
+    private decimal LerDecimal(string mensagem)
+    {
+        while (true)
+        {
+            Console.Write(mensagem);
+            string? texto = Console.ReadLine()?.Trim();
+
+            if (decimal.TryParse(texto, out decimal valor))
+                return valor;
+
+            Console.WriteLine("Digite um valor decimal válido.");
+        }
+    }
+
+    private int LerCapacidadePassageiros(string mensagem)
+    {
+        return LerInteiro(mensagem);
     }
 
     public Caminhonete CadastrarCaminhonete()
     {
-        Caminhonete c = new Caminhonete("", "", "", 0, 0, "");
-        CadastroDadosBase(c); //aqui pega os dados bases
-        
-        System.Console.Write("Digite o tipo de carga: ");
-        c.TipoCarga = Console.ReadLine();
+        var dadosBase = LerDadosBase();
+        string tipoCarga = LerTexto("Digite o tipo de carga: ");
 
-        return c;
+        return new Caminhonete(dadosBase.Placa, dadosBase.Marca, dadosBase.Modelo, dadosBase.Ano, dadosBase.Valor, tipoCarga);
     }
 
     public Automovel CadastrarAutomovel()
     {
-        Automovel a = new Automovel("", "", "", 0, 0, 0);
-        CadastroDadosBase(a); //aqui pega os dados bases
-        
-        System.Console.Write("Digite a CAPACIDADE de passageiros: ");
-        a.CapacidadePassageiros = Convert.ToInt32(Console.ReadLine());
-        
-        return a;
+        var dadosBase = LerDadosBase();
+        int capacidadePassageiros = LerCapacidadePassageiros("Digite a CAPACIDADE de passageiros: ");
+
+        return new Automovel(dadosBase.Placa, dadosBase.Marca, dadosBase.Modelo, dadosBase.Ano, dadosBase.Valor, capacidadePassageiros);
     }
 
     public Motocicleta CadastrarMotocicleta()
     {
-        Motocicleta m = new Motocicleta("", "", "", 0, 0, 0);
-        CadastroDadosBase(m); //aqui pega os dados bases
-        
-        System.Console.Write("Digite a CAPACIDADE de passageiros: ");
-        m.CapacidadePassageiros = Convert.ToInt32(Console.ReadLine());
-        
-        return m;
+        var dadosBase = LerDadosBase();
+        int capacidadePassageiros = LerCapacidadePassageiros("Digite a CAPACIDADE de passageiros: ");
+
+        return new Motocicleta(dadosBase.Placa, dadosBase.Marca, dadosBase.Modelo, dadosBase.Ano, dadosBase.Valor, capacidadePassageiros);
     }
+
     public Bicicleta CadastrarBicicleta()
     {
-        Bicicleta b = new Bicicleta("", "", "", 0, 0, 0);
-        CadastroDadosBase(b); //aqui pega os dados bases
-        
-        System.Console.Write("Digite a CAPACIDADE de passageiros: ");
-        b.CapacidadePassageiros = Convert.ToInt32(Console.ReadLine());
-        
-        return b;
+        var dadosBase = LerDadosBase();
+        int capacidadePassageiros = LerCapacidadePassageiros("Digite a CAPACIDADE de passageiros: ");
+
+        return new Bicicleta(dadosBase.Placa, dadosBase.Marca, dadosBase.Modelo, dadosBase.Ano, dadosBase.Valor, capacidadePassageiros);
     }
 
     public Utilitario CadastrarUtilitario()
     {
-        Utilitario u = new Utilitario("", "", "", 0, 0, "");
-        CadastroDadosBase(u); //aqui pega os dados bases
-        
-        System.Console.Write("Digite os outros detalhes: ");
-        u.Outros = Console.ReadLine();
-        
-        return u;
+        var dadosBase = LerDadosBase();
+        string outros = LerTexto("Digite os outros detalhes: ");
+
+        return new Utilitario(dadosBase.Placa, dadosBase.Marca, dadosBase.Modelo, dadosBase.Ano, dadosBase.Valor, outros);
     }
+
     public Caminhao CadastrarCaminhao()
     {
-        Caminhao c = new Caminhao("", "", "", 0, 0, "");
-        CadastroDadosBase(c); //aqui pega os dados bases
+        var dadosBase = LerDadosBase();
+        string tipoCarga = LerTexto("Digite o tipo de carga: ");
 
-        System.Console.Write("Digite o tipo de carga: ");
-        c.TipoCarga = Console.ReadLine();
-        
-        return c;
+        return new Caminhao(dadosBase.Placa, dadosBase.Marca, dadosBase.Modelo, dadosBase.Ano, dadosBase.Valor, tipoCarga);
     }
-    
 }
